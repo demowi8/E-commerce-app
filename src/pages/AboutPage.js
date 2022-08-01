@@ -4,7 +4,19 @@ import { PageHero } from '../components'
 import aboutImg from '../assets/hero-bcg.jpeg'
 
 const AboutPage = () => {
-  return <h4>about page</h4>
+  return <main>
+    <PageHero title='about'/>
+    <Wrapper className='page section section-center'>
+    <img src={aboutImg} alt='nice desk' />
+    <article>
+      <div className='title'>
+        <h2>Our Story</h2>
+        <div className='underline'></div>
+      </div>
+      <p>This is a story all about how our little life got flipped and turned upside down. Too many times have furniture been discarded due to cheap materials. It can be hard finding furniture that'll actually last longer than your lease. Look no further than Comfy Sloth. We provide everything from desks to chairs to bourdaires and more. Spend your hard earned money on furniture with materials that will last a lifetime!</p>
+    </article>
+    </Wrapper>
+  </main>
 }
 
 const Wrapper = styled.section`
