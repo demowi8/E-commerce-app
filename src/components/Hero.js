@@ -5,7 +5,27 @@ import heroBcg from '../assets/hero-bcg.jpeg'
 import heroBcg2 from '../assets/hero-bcg-2.jpeg'
 
 const Hero = () => {
-  return <h4>hero</h4>
+  return <Wrapper className='section-center'>
+  <article className='content'>
+    <h1>
+      Design your <br />
+      Comfort Zone
+    </h1>
+    <p>
+      Get Started on customizing your very own Comfort Zone! 
+      Pick from our abundance of custom made furniture pieces all specially designed by the best craft makers in the world!
+      Grab a chair or desk or dresser but just make sure you grab it quick. 
+      These special deals won't last forever!
+    </p>
+    <Link to='/products' className='btn hero-btn'>
+      Shop Now
+    </Link>
+  </article>
+  <article className='img-container'>
+    <img src={heroBcg} alt='nice table' className='main-img'/>
+    <img src={heroBcg2} alt='person working' className='accent-img'/>
+  </article>
+  </Wrapper>
 }
 
 const Wrapper = styled.section`
