@@ -11,10 +11,12 @@ import {
   CLEAR_FILTERS,
 } from '../actions'
 import { useProductsContext } from './products_context'
+import { FaLastfmSquare } from 'react-icons/fa'
 
 const initialState = {
   filtered_products:[],
   all_products:[],
+  grid_view:true,
 }
 
 const FilterContext = createContext()
@@ -28,7 +30,7 @@ export const FilterProvider = ({ children }) => {
   }, [products])
 
   return (
-    <FilterContext.Provider value='filter context'>
+    <FilterContext.Provider value={{...state}}>
       {children}
     </FilterContext.Provider>
   )
