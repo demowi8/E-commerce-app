@@ -5,7 +5,74 @@ import { getUniqueValues, formatPrice } from '../utils/helpers'
 import { FaCheck } from 'react-icons/fa'
 
 const Filters = () => {
-  return <h4>filters</h4>
+  const {
+    filters: {
+      text,
+      category,
+      company,
+      color,
+      min_price,
+      price,
+      max_price,
+      shipping,
+    },
+    updateFilters,
+    clearFilters,
+    all_products,
+  } = useFilterContext();
+
+  const categories = getUniqueValues(all_products,'category');
+  const companies = getUniqueValues(all_products,'company');
+  const colors = getUniqueValues(all_products,'colors');
+
+  return <Wrapper>
+  <div className='content'>
+    <form onSubmit={(e)=>e.preventDefault()}>
+      {/* search input */}
+      <div className='form-control'>
+        <input 
+        type='text' 
+        name='text' 
+        placeholder='search' 
+        className='search-input'
+        value={text}
+        onChange={updateFilters}
+        />
+      </div>
+      {/* end search input*/}
+      {/* categories */}
+      <div className='form-control'>
+        <h5>Category</h5>
+        <div>
+          {categories.map((c, index)=> {
+            return <button key={index}
+            onClick={updateFilters}
+            type='button'
+            name='category'
+            className={`${
+              category=== c.toLowerCase()?'active' : null
+            }`}
+            >{c}</button>
+          })}
+        </div>
+      </div>
+      {/* end of categories */}
+      {/* companies */}
+      <div className='form-control'>
+        <h5>Company</h5>
+        <select 
+        name='company' 
+        value={company} 
+        onChange={updateFilters}>
+          {companies.map((c,index)=>{
+            return <option key={index} value={c}>{c}</option>
+          })}
+        </select>
+      </div>
+      {/* end of companies */}
+    </form>
+  </div>
+  </Wrapper>
 }
 
 const Wrapper = styled.section`
