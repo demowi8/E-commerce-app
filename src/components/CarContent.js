@@ -7,13 +7,12 @@ import CartItem from './CartItem'
 import CartTotals from './CartTotals'
 
 const CartContent = () => {
-  const {cart, clearCart } = useCartContext();
+  const {cart, clearCart } = useCartContext()
 
   return (
   <Wrapper className='section section-center'>
     <CartColumns/>
-    {
-      cart.map((item) => {
+    {cart.map((item) => {
         return <CartItem key={item.id} {...item} />
       })}
       <hr/>
